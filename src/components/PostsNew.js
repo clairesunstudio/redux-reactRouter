@@ -3,10 +3,11 @@ import { Field, reduxForm } from 'redux-form'
 
 class PostsNew extends Component {
   renderField(field) {
-    console.log(field)
     //field is the props passed from the Field instance
+    const { meta: { touched, error } }= field
+    const className = `form-group ${touched && error ? 'has-danger': ''}`
     return(
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input className="form-control"
           type="text"
