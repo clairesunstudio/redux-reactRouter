@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -9,16 +10,27 @@ class PostsIndex extends Component {
     //fetch data one time after react component is first rendered. fetch data is asychronous operation,
     //react eagerly renders component so no matter componentDidMount or componentWillMount the component will be rendered once before data is successfully fetched
   }
-  render() {
+  renderPosts(){
     console.log(this.props.posts)
+    return _.map(this.props.posts, post => {
+      return (
+        <li className="list-group-item" key={post.id}>
+          {post.title}
+        </li>
+      );
+    });
+  }
+  render() {
     return (
       <div>
-        <div class="text-xs-right">
+        <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">  {/*Link nav to the new route using to property instead of href*/}
             Add a Post
           </Link>
         </div>
-      Posts Index
+        <ul>
+          {this.renderPosts()}
+        </ul>
       </div>
     )
   }
