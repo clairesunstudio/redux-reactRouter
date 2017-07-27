@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchPosts } from '../actions'
 
 class PostsIndex extends Component {
@@ -12,6 +13,11 @@ class PostsIndex extends Component {
     console.log(this.props.posts)
     return (
       <div>
+        <div class="text-xs-right">
+          <Link className="btn btn-primary" to="/posts/new">  {/*Link nav to the new route using to property instead of href*/}
+            Add a Post
+          </Link>
+        </div>
       Posts Index
       </div>
     )

@@ -19,7 +19,7 @@ ReactDOM.render(
           <Route path="/posts/new" component={PostsNew} />
           <Route path="/" component={PostsIndex} />
         </Switch>
-        //Switch looks up the url and matches the first route to render the component, arrange the most specific route at the top
+        {/*Switch looks up the url and matches the first route to render the component, arrange the most specific route at the top*/}
       </div>
     </BrowserRouter>
   </Provider>
