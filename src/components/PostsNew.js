@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 
 class PostsNew extends Component {
   renderField(field) {
+    console.log(field)
     //field is the props passed from the Field instance
     return(
       <div className="form-group">
@@ -11,6 +12,7 @@ class PostsNew extends Component {
           type="text"
           {...field.input}
         />
+        {field.meta.error}
       </div>
     )
   }
