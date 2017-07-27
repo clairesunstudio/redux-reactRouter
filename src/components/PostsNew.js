@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
 
 class PostsNew extends Component {
   render() {
@@ -8,4 +9,7 @@ class PostsNew extends Component {
   }
 }
 
-export default PostsNew
+export default reduxForm({
+  form: 'PostsNewForm'  //unique name of this form
+})(PostsNew)
+//reduxForm functions similar to connect helper from react-redux, hook up component to the reducer formReducer
